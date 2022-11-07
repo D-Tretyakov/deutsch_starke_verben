@@ -5,7 +5,7 @@ MainFrame::MainFrame()
 {
     m_Parent = new wxPanel(this, wxID_ANY);
 
-    wxBoxSizer* vbox = new wxBoxSizer(wxVertical);
+    wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
     for (auto& button : m_Buttons)
     {
         button = new ChoiceButton(m_Parent, wxString("hello"));
@@ -16,7 +16,7 @@ MainFrame::MainFrame()
         m_Parent, wxID_ANY, wxString("Привет"), wxPoint(10, 10), wxDefaultSize, wxALIGN_CENTRE
     );
 
-    m_Parent->SetSizer(hbox);
+    m_Parent->SetSizer(vbox);
 
     Center();
 }
