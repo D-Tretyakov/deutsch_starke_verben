@@ -2,13 +2,13 @@
 #include <vector>
 #include "ChoiceButton/ChoiceButton.hpp"
 
-class MainFrame : wxFrame
+class MainFrame : public wxFrame
 {
 public:
     MainFrame();
 
 private:
     wxStaticText* m_Translation;
-    std::vector<ChoiceButton*> m_Buttons(4);
+    ChoiceButton* m_Buttons[4];
     wxPanel* m_Parent;
-}
+};

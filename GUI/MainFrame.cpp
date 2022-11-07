@@ -5,15 +5,15 @@ MainFrame::MainFrame()
 {
     m_Parent = new wxPanel(this, wxID_ANY);
 
-    wxBoxSizer* hbox = new wxBoxSizer(wxHORIZONTAL);
-    for (const auto& button : m_Buttons)
+    wxBoxSizer* vbox = new wxBoxSizer(wxVertical);
+    for (auto& button : m_Buttons)
     {
         button = new ChoiceButton(m_Parent, wxString("hello"));
-        hbox->Add(button, 0, wxALL, 5);
+        vbox->Add(button, 0, wxALL, 5);
     }
 
     m_Translation = new wxStaticText(
-        m_Parent, wxID_ANY, xString("Привет"), wxPoint(10, 10), wxDefaultSize, wxALIGN_CENTRE
+        m_Parent, wxID_ANY, wxString("Привет"), wxPoint(10, 10), wxDefaultSize, wxALIGN_CENTRE
     );
 
     m_Parent->SetSizer(hbox);
