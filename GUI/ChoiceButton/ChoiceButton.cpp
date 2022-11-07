@@ -1,4 +1,4 @@
-#include "ChoiceButton.h"
+#include "ChoiceButton.hpp"
 
 ChoiceButton::ChoiceButton(wxFrame* parent, wxString text)
     : wxWindow(parent, wxID_ANY),
