@@ -1,9 +1,9 @@
 #include <wx/wx.h>
 
-class ChoiceButton : wxWindow
+class ChoiceButton : public wxWindow
 {
 public:
-    ChoiceButton(wxFrame* parent, wxString text);
+    ChoiceButton(wxPanel* parent, wxString text);
 
     void OnPaintEvent(wxPaintEvent& event);
     void paintNow();
@@ -14,21 +14,10 @@ public:
     
     void render(wxDC& dc);
 
-    wxDECLARE_EVENT_TABLE()
+    wxDECLARE_EVENT_TABLE();
 
 private:
     bool m_PressedDown;
     wxString m_Text;
     wxSize m_Size;
 };
-
-wxBEGIN_EVENT_TABLE(ChoiceButton, wxWindow)
-
-    EVT_LEFT_DOWN(ChoiceButton::OnMouseDown)
-    EVT_LEFT_UP(ChoiceButton::OnMouseReleased)
-    EVT_LEAVE_WINDOW(ChoiceButton::OnMouseLeftWindow)
-
-    // catch paint events
-    EVT_PAINT(ChoiceButton::OnPaintEvent)
-
-wxEND_EVENT_TABLE()

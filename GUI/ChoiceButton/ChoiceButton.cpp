@@ -1,6 +1,6 @@
 #include "ChoiceButton.hpp"
 
-ChoiceButton::ChoiceButton(wxFrame* parent, wxString text)
+ChoiceButton::ChoiceButton(wxPanel* parent, wxString text)
     : wxWindow(parent, wxID_ANY),
       m_Text(text),
       m_PressedDown(false),
@@ -26,26 +26,37 @@ void ChoiceButton::render(wxDC&  dc)
     dc.DrawText(m_Text, 20, 15);
 }
 
-void ChoiceButton::paintEvent(wxPaintEvent & evt)
+void ChoiceButton::OnPaintEvent(wxPaintEvent & evt)
 {
     paintNow();
 }
 
 void ChoiceButton::OnMouseDown(wxMouseEvent& event)
 {
-    pressedDown = true;
+    m_PressedDown = true;
     paintNow();
 }
 void ChoiceButton::OnMouseReleased(wxMouseEvent& event)
 {
-    pressedDown = false;
+    m_PressedDown = false;
     paintNow();
 }
 void ChoiceButton::OnMouseLeftWindow(wxMouseEvent& event)
 {
-    if (pressedDown)
+    if (m_PressedDown)
     {
-        pressedDown = false;
+        m_PressedDown = false;
         paintNow();
     }
 }
+
+
+wxBEGIN_EVENT_TABLE(ChoiceButton, wxWindow)
+
+    EVT_LEFT_DOWN(ChoiceButton::OnMouseDown)
+    EVT_LEFT_UP(ChoiceButton::OnMouseReleased)
+    EVT_LEAVE_WINDOW(ChoiceButton::OnMouseLeftWindow)
+
+    EVT_PAINT(ChoiceButton::OnPaintEvent)
+
+wxEND_EVENT_TABLE()
