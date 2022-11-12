@@ -1,5 +1,6 @@
 #include <wx/wx.h>
-#include <vector>
+#include "ButtonPanel/ButtonPanel.hpp"
+#include "TranslationPanel/TranslationPanel.hpp"
 
 class MainFrame : public wxFrame
 {
@@ -7,6 +8,8 @@ public:
     MainFrame();
 
 private:
-    wxStaticText* m_Translation;
-    wxPanel* m_Parent;
+    ButtonPanel* button_panel;
+    TranslationPanel* translation_panel;
+
+    wxBoxSizer* vbox;
 };
