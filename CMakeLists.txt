@@ -19,3 +19,8 @@ set(SRC_FILES
 add_executable(${PROJECT_NAME} WIN32 ${SRC_FILES})
 # Link required libraries to the executable
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
+# Set Windows resources file
+if(WIN32)
+    set(wxWidgets_RC "../modulation_sim/wxWidget/wx_install/include/wx/msw/wx.rc")
+    target_sources(${PROJECT_NAME} PRIVATE ${wxWidgets_RC})
+endif()
