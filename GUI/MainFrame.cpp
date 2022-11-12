@@ -12,11 +12,11 @@ MainFrame::MainFrame()
     ButtonPanel* button_panel = new ButtonPanel(this);
     TranslationPanel* translation_panel = new TranslationPanel(this);
 
-    vbox->Add(translation_panel, 0, wxEXPAND | wxALL, 5);
+    vbox->Add(translation_panel, 1, wxEXPAND | wxALL, 5);
     vbox->Add(button_panel, 0, wxEXPAND | wxALL, 5);
 
     SetSizer(vbox);
 
-    Center();
+    Center(wxBOTH);
 }
 
