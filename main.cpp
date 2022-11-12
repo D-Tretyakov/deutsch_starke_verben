@@ -3,7 +3,7 @@
 
 class App : public wxApp
 {
-  public:
+public:
     virtual bool OnInit();
 };
 
