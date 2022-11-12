@@ -9,8 +9,8 @@ MainFrame::MainFrame()
     m_ButtonPanel = new ButtonPanel(this);
     m_TranslationPanel = new TranslationPanel(this);
 
-    m_Sizer->Add(m_ButtonPanel, 0, wxEXPAND | wxALL, 5);
     m_Sizer->Add(m_TranslationPanel, 1, wxEXPAND | wxALL, 5);
+    m_Sizer->Add(m_ButtonPanel, 0, wxEXPAND | wxALL, 5);
 
     SetSizer(m_Sizer);
 
