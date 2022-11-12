@@ -10,8 +10,17 @@ if(wxWidgets_USE_FILE)
     include(${wxWidgets_USE_FILE})
 endif()
 
-set(SRC_FILES
+include_directories("GUI")
+
+set(GUI_SOURCES
+    GUI/ButtonPanel/ChoiceButton/ChoiceButton.cpp
+    GUI/ButtonPanel/ButtonPanel.cpp
+    GUI/TranslationPanel/TranslationPanel.cpp
     GUI/MainFrame.cpp
+)
+
+set(SRC_FILES
+    ${GUI_SOURCES}
     main.cpp
 )
 
