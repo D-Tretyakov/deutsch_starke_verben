@@ -4,8 +4,6 @@
 MainFrame::MainFrame()
     : wxFrame(NULL, wxID_ANY, wxString("Starke Verben lernen"), wxDefaultPosition, wxSize(500, 700))
 {
-    SetSizeHints( wxDefaultSize, wxDefaultSize );
-
     vbox = new wxBoxSizer(wxVERTICAL);
 
     button_panel = new ButtonPanel(this);
