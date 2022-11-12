@@ -7,6 +7,8 @@ class MainFrame : public wxFrame
 public:
     MainFrame();
 
+    TranslationPanel* GetTranslationPanel();
+
 private:
     ButtonPanel* m_ButtonPanel;
     TranslationPanel* m_TranslationPanel;
