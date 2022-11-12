@@ -1,6 +1,6 @@
 #include "ChoiceButton.hpp"
 
-ChoiceButton::ChoiceButton(wxPanel* parent, wxString text)
+ChoiceButton::ChoiceButton(wxPanel* parent, wxT text)
     : wxButton(parent, wxID_ANY, text),
       m_Size(wxSize(200, 50))
 {
