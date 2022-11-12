@@ -7,7 +7,7 @@ ButtonPanel::ButtonPanel(wxFrame* parent)
     for (auto& button : m_Buttons)
     {
         button = new ChoiceButton(this, wxT("русская кнопка"));
-        vbox->Add(button, 0, wxALL, 5);
+        vbox->Add(button, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 5);
     }
 
     SetSizer(vbox);
