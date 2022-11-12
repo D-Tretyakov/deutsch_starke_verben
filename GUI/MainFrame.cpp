@@ -1,22 +1,21 @@
 #include "MainFrame.hpp"
+#include "ButtonPanel/ButtonPanel.hpp"
+#include "TranslationPanel/TranslationPanel.hpp"
 
 MainFrame::MainFrame()
     : wxFrame(NULL, wxID_ANY, wxString("Starke Verben lernen"), wxDefaultPosition, wxSize(500, 700))
 {
-    m_Parent = new wxPanel(this, wxID_ANY);
+    SetSizeHints( wxDefaultSize, wxDefaultSize );
 
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
-    for (auto& button : m_Buttons)
-    {
-        button = new ChoiceButton(m_Parent, wxString("hello"));
-        vbox->Add(button, 0, wxALL, 5);
-    }
 
-    m_Translation = new wxStaticText(
-        m_Parent, wxID_ANY, wxString("Привет"), wxPoint(10, 10), wxDefaultSize, wxALIGN_CENTRE
-    );
+    ButtonPanel* button_panel = new ButtonPanel(this);
+    TranslationPanel* translation_panel = new TranslationPanel(this);
 
-    m_Parent->SetSizer(vbox);
+    vbox->Add(translation_panel, 0, wxEXPAND | wxALL, 5);
+    vbox->Add(button_panel, 0, wxEXPAND | wxALL, 5);
+
+    SetSizer(vbox);
 
     Center();
 }
