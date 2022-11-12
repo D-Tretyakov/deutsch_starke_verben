@@ -1,8 +1,7 @@
 #include "ChoiceButton.hpp"
 
-ChoiceButton::ChoiceButton(wxPanel* parent, wxT text)
-    : wxButton(parent, wxID_ANY, text),
-      m_Size(wxSize(200, 50))
+ChoiceButton::ChoiceButton(wxPanel* parent, const wxString& text)
+    : wxButton(parent, wxID_ANY, text)
 {
-    SetMinSize(m_Size);
+    SetMinSize(wxSize(200, 50));
 }
