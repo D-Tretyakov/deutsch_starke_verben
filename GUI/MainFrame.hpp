@@ -1,3 +1,5 @@
+#pragma once
+
 #include <wx/wx.h>
 #include "ButtonPanel/ButtonPanel.hpp"
 #include "TranslationPanel/TranslationPanel.hpp"
