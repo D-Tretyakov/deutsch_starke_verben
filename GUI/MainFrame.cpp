@@ -4,15 +4,15 @@
 MainFrame::MainFrame()
     : wxFrame(NULL, wxID_ANY, wxString("Starke Verben lernen"), wxDefaultPosition, wxSize(500, 700))
 {
-    vbox = new wxBoxSizer(wxVERTICAL);
+    m_Sizer = new wxBoxSizer(wxVERTICAL);
 
-    button_panel = new ButtonPanel(this);
-    translation_panel = new TranslationPanel(this);
+    m_ButtonPanel = new ButtonPanel(this);
+    m_TranslationPanel = new TranslationPanel(this);
 
-    vbox->Add(translation_panel, 1, wxEXPAND | wxALL, 5);
-    vbox->Add(button_panel, 0, wxEXPAND | wxALL, 5);
+    m_Sizer->Add(translation_panel, 1, wxEXPAND | wxALL, 5);
+    m_Sizer->Add(button_panel, 0, wxEXPAND | wxALL, 5);
 
-    SetSizer(vbox);
+    SetSizer(m_Sizer);
 
     Center(wxBOTH);
 }

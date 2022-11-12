@@ -8,8 +8,8 @@ public:
     MainFrame();
 
 private:
-    ButtonPanel* button_panel;
-    TranslationPanel* translation_panel;
+    ButtonPanel* m_ButtonPanel;
+    TranslationPanel* m_TranslationPanel;
 
-    wxBoxSizer* vbox;
+    wxBoxSizer* m_Sizer;
 };
