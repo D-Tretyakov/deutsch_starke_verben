@@ -13,3 +13,8 @@ TranslationPanel::TranslationPanel(wxFrame* parent)
 
     SetSizer(m_Grid);
 }
+
+void TranslationPanel::SetText(std::wstring& text)
+{
+    m_Translation->SetLabel(text.c_str());
+}
