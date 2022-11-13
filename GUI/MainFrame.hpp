@@ -9,8 +9,8 @@ class MainFrame : public wxFrame
 public:
     MainFrame();
 
-    TranslationPanel* GetTranslationPanel();
-
+    void NeedRefresh();
+    
 private:
     ButtonPanel* m_ButtonPanel;
     TranslationPanel* m_TranslationPanel;

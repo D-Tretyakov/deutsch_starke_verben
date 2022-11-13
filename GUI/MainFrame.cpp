@@ -1,5 +1,11 @@
 #include "MainFrame.hpp"
+#include <vector>
+#include <string>
 
+#include <chrono>
+#include <thread>
+
+#include <random>
 
 MainFrame::MainFrame()
     : wxFrame(NULL, wxID_ANY, wxString("Starke Verben lernen"), wxDefaultPosition, wxSize(500, 700))
@@ -14,10 +20,29 @@ MainFrame::MainFrame()
 
     SetSizer(m_Sizer);
 
+    std::vector<std::wstring> words;
+    words.push_back(L"слово 1");
+    words.push_back(L"слово 2");
+    words.push_back(L"слово 3");
+    words.push_back(L"слово 4");
+    m_ButtonPanel->Refresh(words, 2);
+
     Center(wxBOTH);
 }
 
-TranslationPanel* MainFrame::GetTranslationPanel()
+void MainFrame::NeedRefresh()
 {
-    return m_TranslationPanel;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distrib(0, 3);
+
+    using namespace std::chrono_literals;
+    std::this_thread::sleep_for(2s);
+
+    std::vector<std::wstring> words;
+    words.push_back(L"слово 1");
+    words.push_back(L"слово 2");
+    words.push_back(L"слово 3");
+    words.push_back(L"слово 4");
+    m_ButtonPanel->Refresh(words, distrib(gen));
 }
