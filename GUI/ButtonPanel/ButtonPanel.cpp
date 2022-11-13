@@ -23,7 +23,6 @@ ButtonPanel::ButtonPanel(wxFrame* parent)
 
 void ButtonPanel::OnButtonClick(wxCommandEvent& event, int button_num)
 {
-
     m_Buttons[m_Correct]->PaintCorrect();
 
     if (button_num != m_Correct)
