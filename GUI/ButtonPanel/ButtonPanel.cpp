@@ -30,6 +30,8 @@ void ButtonPanel::OnButtonClick(wxCommandEvent& event, int button_num)
 
     DisableButtons();
 
+    // Can be done without dynamic_cast 
+    // but with custom event to be caught by MainFrame
     MainFrame* main_frame = dynamic_cast<MainFrame*>(m_Parent);
     main_frame->NeedRefresh();
 }

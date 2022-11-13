@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 
-
 class ButtonPanel : public wxPanel
 {
 public:

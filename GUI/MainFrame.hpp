@@ -1,5 +1,4 @@
 #pragma once
-
 #include <wx/wx.h>
 #include "ButtonPanel/ButtonPanel.hpp"
 #include "TranslationPanel/TranslationPanel.hpp"
@@ -10,7 +9,7 @@ public:
     MainFrame();
 
     void NeedRefresh();
-    
+
 private:
     ButtonPanel* m_ButtonPanel;
     TranslationPanel* m_TranslationPanel;
