@@ -50,5 +50,4 @@ void MainFrame::MakeQuestion()
 
     m_ButtonPanel->Refresh(verbs, answer_pos);
     m_TranslationPanel->SetText(translation);
-
 }
