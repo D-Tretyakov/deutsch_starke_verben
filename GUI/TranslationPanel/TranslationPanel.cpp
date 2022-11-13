@@ -17,4 +17,5 @@ TranslationPanel::TranslationPanel(wxFrame* parent)
 void TranslationPanel::SetText(std::wstring& text)
 {
     m_Translation->SetLabel(text.c_str());
+    m_Grid->Layout();
 }
