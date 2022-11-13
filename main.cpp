@@ -1,6 +1,6 @@
 #include <wx/wx.h>
 #include "GUI/MainFrame.hpp"
-#include "static/germany.xpm" 
+#include "static/icon.xpm" 
 
 class App : public wxApp
 {
