@@ -6,11 +6,11 @@ ButtonPanel::ButtonPanel(wxFrame* parent)
       m_Parent(parent),
       m_Correct(-1)
 {
-    wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
+    m_Sizer = new wxBoxSizer(wxVERTICAL);
     for (int i = 0; i < 4; i++)
     {
         m_Buttons[i] = new ChoiceButton(this, wxT("Обычный текст"));
-        vbox->Add(m_Buttons[i], 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 5);
+        m_Sizer->Add(m_Buttons[i], 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 5);
 
         auto const handler = [i, this](wxCommandEvent& event){
             OnButtonClick(event, i);
@@ -18,7 +18,7 @@ ButtonPanel::ButtonPanel(wxFrame* parent)
         m_Buttons[i]->Bind(wxEVT_BUTTON, handler);
     }
 
-    SetSizer(vbox);
+    SetSizer(m_Sizer);
 }
 
 void ButtonPanel::OnButtonClick(wxCommandEvent& event, int button_num)

@@ -15,6 +15,7 @@ public:
     void DisableButtons();
 private:
     wxFrame* m_Parent;
+    wxBoxSizer* m_Sizer;
     ChoiceButton* m_Buttons[4];
 
     int m_Correct; // index of button with correct answer
