@@ -19,5 +19,5 @@ void ChoiceButton::PaintIncorrect()
 void ChoiceButton::PaintDefault() 
 {
     const wxColor default_color(240, 240, 240);
-    SetBackgroundColour(*default_color);
+    SetBackgroundColour(default_color);
 }
