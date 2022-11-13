@@ -1,5 +1,6 @@
 #include <wx/wx.h>
 #include "GUI/MainFrame.hpp"
+#include "static/germany.xpm" 
 
 class App : public wxApp
 {
@@ -10,6 +11,7 @@ public:
 bool App::OnInit()
 {
     MainFrame* frame = new MainFrame();
+    frame->SetIcon(app_icon);
     frame->Show();
 
     return true;
