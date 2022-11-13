@@ -49,5 +49,5 @@ void ButtonPanel::Refresh(std::vector<std::wstring>& words, int correct)
 void ButtonPanel::DisableButtons()
 {
     for (int i = 0; i < 4; i++)
-         m_Buttons[i]->Enable(false);
+        m_Buttons[i]->Enable(false);
 }
