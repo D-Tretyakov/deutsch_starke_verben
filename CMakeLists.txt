@@ -10,7 +10,12 @@ if(wxWidgets_USE_FILE)
     include(${wxWidgets_USE_FILE})
 endif()
 
+include_directories("DataProvider")
 include_directories("GUI")
+
+set(DATA_SOURCES
+    DataProvider/DataProvider.cpp
+)
 
 set(GUI_SOURCES
     GUI/ButtonPanel/ChoiceButton/ChoiceButton.cpp
@@ -20,6 +25,7 @@ set(GUI_SOURCES
 )
 
 set(SRC_FILES
+    ${DATA_SOURCES}
     ${GUI_SOURCES}
     main.cpp
 )
