@@ -3,7 +3,7 @@
 ChoiceButton::ChoiceButton(wxPanel* parent, const wxString& text)
     : wxButton(parent, wxID_ANY, text)
 {
-    SetMinSize(wxSize(200, 50));
+    SetMinSize(wxSize(250, 50));
 }
 
 void ChoiceButton::PaintCorrect() 
