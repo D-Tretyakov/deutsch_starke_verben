@@ -8,7 +8,8 @@
 #include <random>
 
 MainFrame::MainFrame()
-    : wxFrame(NULL, wxID_ANY, wxString("Starke Verben lernen"), wxDefaultPosition, wxSize(500, 700))
+    : wxFrame(NULL, wxID_ANY, wxString("Starke Verben lernen"), wxDefaultPosition, wxSize(500, 700)),
+      m_DataProvider(L"starke_verben.csv")
 {
     m_Sizer = new wxBoxSizer(wxVERTICAL);
 
@@ -20,29 +21,34 @@ MainFrame::MainFrame()
 
     SetSizer(m_Sizer);
 
-    std::vector<std::wstring> words;
-    words.push_back(L"слово 1");
-    words.push_back(L"слово 2");
-    words.push_back(L"слово 3");
-    words.push_back(L"слово 4");
-    m_ButtonPanel->Refresh(words, 2);
+    MakeQuestion();
 
     Center(wxBOTH);
 }
 
 void MainFrame::NeedRefresh()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> distrib(0, 3);
-
     using namespace std::chrono_literals;
     std::this_thread::sleep_for(2s);
 
-    std::vector<std::wstring> words;
-    words.push_back(L"слово 1");
-    words.push_back(L"слово 2");
-    words.push_back(L"слово 3");
-    words.push_back(L"слово 4");
-    m_ButtonPanel->Refresh(words, distrib(gen));
+    MakeQuestion();
+}
+
+void MainFrame::MakeQuestion()
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distrib(0, 3);
+    const int answer_pos = distrib(gen);
+
+    const auto entries = m_DataProvider.Get(4);
+    std::wstring translation = entries[answer_pos].first;
+
+    std::vector<std::wstring> verbs;
+    for (const auto& entry : entries)
+        verbs.push_back(entry.second);
+
+    m_ButtonPanel->Refresh(verbs, answer_pos);
+    m_TranslationPanel->SetText(translation);
+
 }
